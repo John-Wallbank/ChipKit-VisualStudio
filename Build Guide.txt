@@ -1,0 +1,57 @@
+This guide shows how to get the example DigitalPotControl compileable in VC++ and loaded on to an Uno32 using Visual Studio Express 2010.
+
+It's written on the basis you are xxx and that
+
+Your mpide installation folder is c:\mpide
+Your sketch folder is C:\Users\xxx\Documents\mpide\Sketches
+Your mpide preferences folder is C:\Users\xxx\AppData\Roaming\mpide
+You are using Windows 7
+
+That’s not to say all this won't work fine if your folders are elsewhere
+
+Have Visual Studio 2010 C++ Express loaded - you need to know how to get around in it.
+
+You will need a program or a script to briefly bring DTR low on your Uno32 that works on Windows.  I wrote one called ResetSerial.exe in Visual Basic (it uses .net) and I have included the source and the .exe for it.
+
+Put ARDUINO.mak, Chipkit.mak and ResetSerial.exe in c:\mpide
+
+The first major effort is to setup VC++ so that it recognizes the .pde suffix as a C++ source file.  I found this guide on the Arduino website which gets you there eventually:
+
+playground.arduino.cc/Code/VisualStudio
+
+I don’t think you actually need all the stuff but more research is required.
+
+Create a new makefile project called DigitalPotControl in your sketch folder and save it.
+In windows copy the project files makefile and DigitalPotControl.pde into the folder C:\Users\xxx\Documents\mpide\Sketches\DigitalPotControl\DigitalPotControl
+
+In VC++ 
+Add DigitalPotControl.pde to the source Files folder and change its file type property to C/C++
+Add makefile to the Resource Files folder and change its file type property to makefile
+
+Go to the Property pages for the project, select VC++ Directories.  Clear out all the default properties.
+Add these folders:
+
+Executable folder
+C:\mpide\hardware\tools\avr\utils\bin
+
+Include folders
+C:\mpide\hardware\pic32\cores\pic32
+C:\mpide\hardware\pic32\compiler\pic32-tools\pic32mx\include
+
+Go to the NMake tab and change the Build Command Line to make upload
+
+OK the property pages
+
+Open the makefile
+Change the com port to the one you are using
+
+Open DigitalPotControl.pde.  Hopefully you should see Intellisense working.
+The definition #define __32MX320F128H__ refers to a chipkit Uno32, you will need to change this to match your board as needed
+
+Plug in your Uno32 and build the project - hopefully the program will compile and load.
+
+This process makes use of the fact that you simply replace the use of NMake with GNU Make (which is usefully supplied with the MPIDE release).  The makefiles produced by Chris Peplin will compile, link and upload your sketch for you without the involvement of Visual Studio once started.  By setting up the right include paths and including the necessary header files in your source you can make Visual Studio Intellisense work adequately.
+
+What doesn’t work is the debugger and you will see the odd message from it.
+
+Also I can’t make the interacting compiler errors window work (it can be done but not using Express).  However error lines produced by the compiler in the output window are accurate to the source (at least mine are).
