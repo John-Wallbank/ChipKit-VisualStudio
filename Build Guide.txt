@@ -1,6 +1,6 @@
 This guide shows how to get the example DigitalPotControl compileable in VC++ and loaded on to an Uno32 using Visual Studio Express 2010.
 
-It's written on the basis you are xxx and that
+It's written on the basis you are xxx and that:
 
 Your mpide installation folder is c:\mpide
 Your sketch folder is C:\Users\xxx\Documents\mpide\Sketches
