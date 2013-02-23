@@ -672,6 +672,7 @@ raw_upload:	$(TARGET_HEX)
 # stdin/out appears to work but generates a spurious error on MacOS at
 # least. Perhaps it would be better to just do it in perl ?
 reset:
+	@mkdir -p $(OBJDIR)
 	@$(ARDUINO_MK_PATH)ResetSerial.exe $(ARD_PORT)
 
 ispload:	$(TARGET_HEX)
