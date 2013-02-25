@@ -24,7 +24,7 @@ I don't think you actually need all the stuff but more research is required.
 Create a new makefile project called DigitalPotControl in your sketch folder and save it.
 In windows copy the project files makefile and DigitalPotControl.pde into the folder C:\Users\xxx\Documents\mpide\Sketches\DigitalPotControl\DigitalPotControl
 
-In VC++ 
+In VC++
 Add DigitalPotControl.pde to the Source Files folder and change its file type property to C/C++
 Add makefile to the Resource Files folder and change its file type property to makefile
 
