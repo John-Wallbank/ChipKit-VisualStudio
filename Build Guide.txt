@@ -37,6 +37,7 @@ C:\mpide\hardware\tools\avr\utils\bin
 Include folders for the general stuff
 C:\mpide\hardware\pic32\cores\pic32
 C:\mpide\hardware\pic32\compiler\pic32-tools\pic32mx\include
+C:\mpide\hardware\pic32\variants\Uno32 (you will to change this folder to the board you are using)
 and for the SPI library
 C:\mpide\hardware\pic32\libraries\SPI
 
