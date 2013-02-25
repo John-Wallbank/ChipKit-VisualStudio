@@ -662,7 +662,7 @@ $(CORE_LIB):	$(CORE_OBJS) $(LIB_OBJS) $(USER_LIB_OBJS)
 		@echo "Producing $(CORE_LIB)"
 		@$(AR) rcs $@ $(CORE_OBJS) $(LIB_OBJS) $(USER_LIB_OBJS)
 
-upload:		reset raw_upload
+upload:		$(OBJDIR) reset raw_upload
 
 raw_upload:	$(TARGET_HEX)
 		@echo "Uploading $(TARGET_HEX) to device"
@@ -672,8 +672,7 @@ raw_upload:	$(TARGET_HEX)
 # stdin/out appears to work but generates a spurious error on MacOS at
 # least. Perhaps it would be better to just do it in perl ?
 reset:
-	@mkdir -p $(OBJDIR)
-	@$(ARDUINO_MK_PATH)ResetSerial.exe $(ARD_PORT)
+		@$(ARDUINO_MK_PATH)ResetSerial.exe $(ARD_PORT)
 
 ispload:	$(TARGET_HEX)
 		$(AVRDUDE) $(AVRDUDE_COM_OPTS) $(AVRDUDE_ISP_OPTS) -e \
