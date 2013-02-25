@@ -11,7 +11,7 @@ That's not to say all this won't work fine if your folders are elsewhere
 
 Have Visual Studio 2010 C++ Express loaded - you need to know how to get around in it.
 
-You will need a program or a script to briefly bring DTR low on your Uno32 that works on Windows.  I wrote one called ResetSerial.exe in Visual Basic (it uses .net) and I have included the source and the .exe for it.
+You will need a program or a script to briefly bring DTR high on your Uno32 that works on Windows.  I wrote one called ResetSerial.exe in Visual Basic (it uses .net) and I have included the source and the .exe for it.
 
 Put ARDUINO.mak, Chipkit.mak and ResetSerial.exe in c:\mpide
 
